@@ -20,14 +20,16 @@ const {
 	CondCommandHoldCue
 } = require('./Conditions');
 
-const Engine0 = new Engine(0);
+const engine_0 = new Engine(0);
+
+const { sound, snap, xyz } = require('./helpers');
 
 let propEvent = new Attachment({
-	obj: new Event('/da62/engines/prop'),
-	location: Engine0,
-	allowAI: true,
-	idx: Engine0.getIndex(),
-	conditions: [
+	obj: sound('/da62/engines/prop'),
+	loc: engine_0,
+	ai: true,
+	idx: engine_0.getIndex(),
+	conds: [
 		new CondStartDelta('sim/bla', '==', 0),
 		new CondEnd('sim/bla', '>=', 1)
 	],
@@ -35,9 +37,9 @@ let propEvent = new Attachment({
 });
 
 let snapshotEvent = new Attachment({
-	obj: new Snapshot('/in_cockpit'),
-	location: new VehXYZ(new Coords(-0.2699, 0.31676, -20.8278)),
-	conditions: [
+	obj: snap('/in_cockpit'),
+	loc: xyz(-0.2699, 0.31676, -20.8278),
+	conds: [
 		new CondCommandDown('sim/bla'),
 	],
 	remark: 'Bla!'

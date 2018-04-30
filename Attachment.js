@@ -1,13 +1,13 @@
 const { EOL, TAB } = require('./constants');
 const { VehPart, VehXYZ } = require('./VehParts');
 
-function Attachment({obj, location, allowAI, idx, conditions, remark}) {
+function Attachment({obj, loc, ai, idx, conds, remark}) {
 
 	this.obj = obj;
-	this.location = location;
-	this.allowAI = allowAI;
+	this.location = loc;
+	this.allowAI = ai;
 	this.idx = idx;
-	this.conditions = conditions;
+	this.conditions = conds;
 	this.remark = remark;
 
 	if (!this.location instanceof VehPart || !this.location instanceof VehXYZ) {
