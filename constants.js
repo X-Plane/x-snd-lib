@@ -17,5 +17,11 @@ module.exports = {
 	TAB,
 	VEH_PART_COCKPIT,
 	VEH_PART_ENGINE,
-	VEH_PART_TIRE
+	VEH_PART_TIRE,
+	LT,
+	LTE,
+	EQ,
+	NEQ,
+	GTE,
+	GT
 };

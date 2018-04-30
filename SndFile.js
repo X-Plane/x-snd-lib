@@ -6,6 +6,7 @@ function SndFile({contents = [], name = '', author = '', version = '', company =
 
 	this.toString = function() {
 		let ret = '';
+		ret += 'A' + EOL + '1000' + EOL + 'ACF_SOUNDS' + EOL + EOL;
 		if (name || author || version || company) {
 			let maxChars = Math.max(name.length, author.length, version.length, company.length);
 			ret += '#'.repeat(maxChars + 10) + EOL;
