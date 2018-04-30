@@ -1,13 +1,7 @@
 #!/usr/bin/env node
 
-const {
-	VEH_PART_TIRE,
-	VEH_PART_ENGINE,
-	VEH_PART_COCKPIT,
-
-} = require('./constants');
 const { Event, Snapshot } = require('./Events');
-const { VehPart, VehXYZ } = require('./VehParts');
+const { Engine, Tire, Cockpit, VehXYZ } = require('./VehParts');
 const Attachment = require('./Attachment');
 const Section = require('./Section');
 const SndFile = require('./SndFile');
@@ -26,8 +20,7 @@ const {
 	CondCommandHoldCue
 } = require('./Conditions');
 
-const Engine0 = new VehPart(VEH_PART_ENGINE, 0);
-
+const Engine0 = new Engine(0);
 
 let propEvent = new Attachment({
 	obj: new Event('/da62/engines/prop'),
@@ -36,7 +29,7 @@ let propEvent = new Attachment({
 	idx: Engine0.getIndex(),
 	conditions: [
 		new CondStartDelta('sim/bla', '==', 0),
-		new CondEnd('sim/bla', '==', 1)
+		new CondEnd('sim/bla', '>=', 1)
 	],
 	remark: 'Engine!'
 });

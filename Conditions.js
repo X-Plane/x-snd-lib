@@ -17,7 +17,7 @@ function CondGeneric(type, dref = '', op = '', value) {
 		throw new Error(`CondGeneric ${type}: missing value`);
 	}
 	this.toString = function() {
-		return `${type} ${dref} ${op} ${value}`;
+		return `${type} ${dref.trim()} ${op} ${value}`;
 	}
 }
 

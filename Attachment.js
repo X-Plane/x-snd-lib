@@ -1,4 +1,5 @@
 const { EOL, TAB } = require('./constants');
+const { VehPart, VehXYZ } = require('./VehParts');
 
 function Attachment({obj, location, allowAI, idx, conditions, remark}) {
 
@@ -9,8 +10,12 @@ function Attachment({obj, location, allowAI, idx, conditions, remark}) {
 	this.conditions = conditions;
 	this.remark = remark;
 
-	// TODO: validate location
-	// TODO: validate conditions
+	if (!this.location instanceof VehPart || !this.location instanceof VehXYZ) {
+		throw new Error('Attachment: unknown location type');
+	}
+	if (!this.conditions.length) {
+		throw new Error('Attachment: no conditions given');
+	}
 
 	this.toString = function() {
 		let ret = '';

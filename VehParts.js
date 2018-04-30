@@ -30,7 +30,14 @@ function VehXYZ(coords = new Coords(0,0,0)) {
 	}
 }
 
+function Engine(idx) { return new VehPart(VEH_PART_ENGINE, idx) }
+function Tire(idx) { return new VehPart(VEH_PART_TIRE, idx) }
+function Cockpit(idx) { return new VehPart(VEH_PART_COCKPIT, idx) }
+
 module.exports = {
+	VehXYZ,
 	VehPart,
-	VehXYZ
+	Cockpit,
+	Tire,
+	Engine
 };
