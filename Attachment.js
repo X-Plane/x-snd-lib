@@ -1,3 +1,5 @@
+const { EOL, TAB } = require('./constants');
+
 function Attachment({obj, location, allowAI, idx, conditions, remark}) {
 
 	this.obj = obj;
@@ -7,8 +9,8 @@ function Attachment({obj, location, allowAI, idx, conditions, remark}) {
 	this.conditions = conditions;
 	this.remark = remark;
 
-	const EOL = '\r\n';
-	const TAB = '\t';
+	// TODO: validate location
+	// TODO: validate conditions
 
 	this.toString = function() {
 		let ret = '';

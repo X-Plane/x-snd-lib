@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-const Attachment = require('./Attachment');
+const {
+	VEH_PART_TIRE,
+	VEH_PART_ENGINE,
+	VEH_PART_COCKPIT
+} = require('./constants');
 
-const VEH_PART_ENGINE = 'engine';
-const VEH_PART_TIRE = 'tire';
-const VEH_PART_COCKPIT = 'cockpit';
+const Attachment = require('./Attachment');
+const Section = require('./Section');
+const SndFile = require('./SndFile');
 
 function Coords(x, y, z) {
 
@@ -117,7 +121,6 @@ const Engine0 = new VehPart(VEH_PART_ENGINE, 0);
 
 let propEvent = new Attachment({
 	obj: new Event('/da62/engines/prop'),
-	// obj: new Snapshot('/in_cockpit'),
 	location: Engine0,
 	// location: new VehXYZ(new Coords(-0.2699, 0.31676, -20.8278)),
 	allowAI: true,
@@ -129,5 +132,36 @@ let propEvent = new Attachment({
 	remark: 'Engine!'
 });
 
-console.log(propEvent.toString());
+let snapshotEvent = new Attachment({
+	obj: new Snapshot('/in_cockpit'),
+	location: new VehXYZ(new Coords(-0.2699, 0.31676, -20.8278)),
+	conditions: [
+		new CondCommandDown('sim/bla'),
+	],
+	remark: 'Bla!'
+});
+
+let mySection = new Section({
+	remark: 'MY COOL SECTION',
+	attachments: [
+		propEvent,
+		snapshotEvent
+		]
+	},
+);
+
+let myFile = new SndFile({
+	name: 'My Cool Aircraft sound bank',
+	version: '1.0.0-alpha-1',
+	author: "Daniela Rodriguez <dcareri@gmail.com>",
+	company: 'Bla bla design',
+	contents: [
+		mySection,
+		mySection
+	]
+	},
+);
+
+
+console.log(myFile.toString());
 
