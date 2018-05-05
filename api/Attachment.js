@@ -40,7 +40,7 @@ function Attachment(name, remark = null, attType) {
 
 Attachment.prototype.toString = function () {
 	if (!this.location && this.attType === BaseEvent) {
-		console.log(`Attachment: No position set, using CG at ${this.remark}.`);
+		console.log(`Attachment: No position set, using CG at ${this.name}.`);
 		this.location = new VehXYZ(new Coords(0, 0, 0));
 	}
 	return new BaseAttachment({
