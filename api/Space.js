@@ -5,7 +5,6 @@ const { remarkFromName } = require('./util');
 
 function Space(name, remark = null) {
 	if (this instanceof Space) {
-		this.name = name;
 		this.location = null;
 		this.depth = null;
 		this.idx = null;
@@ -24,11 +23,6 @@ Space.prototype = {
 			depth: this.depth,
 			remark: this.remark
 		}).toString();
-	},
-
-	setNamespace: function (namespace) {
-		this.name = `${namespace}${this.name}`;
-		return this;
 	},
 
 	aabb: function (x1, y1, z1, x2, y2, z2) {
