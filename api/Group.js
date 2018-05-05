@@ -1,23 +1,28 @@
-function Group(attachments = []) {
+function Group(directives = []) {
 	if (this instanceof Group) {
-		this.attachments = attachments;
+		this.directives = directives;
 		this.namespace = '';
 	} else {
-		return new Group(attachments);
+		return new Group(directives);
 	}
 }
 
 Group.prototype.toString = function () {
 	let ret = '';
-	this.attachments.forEach(attachment => {
-		attachment.setNamespace(this.namespace);
-		ret += attachment.toString()
+	this.directives.forEach(directive => {
+		directive.setNamespace(this.namespace);
+		ret += directive.toString()
 	});
 	return ret;
 };
 
 Group.prototype.setNamespace = function (namespace) {
 	this.namespace = namespace;
+	return this
+};
+
+Group.prototype.addDirective = function (directive) {
+	this.directives.push(directive);
 	return this
 };
 
