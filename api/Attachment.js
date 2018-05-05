@@ -27,6 +27,7 @@ function Attachment(name, remark = null, attType) {
 	if (this instanceof Attachment) {
 		this.attType = attType;
 		this.name = name;
+		this.namespace = '';
 		this.location = null;
 		this.allowAI = false;
 		this.idx = null;
@@ -43,7 +44,7 @@ Attachment.prototype.toString = function () {
 		this.location = new VehXYZ(new Coords(0, 0, 0));
 	}
 	return new BaseAttachment({
-		obj: new this.attType(this.name),
+		obj: new this.attType(`${this.namespace}${this.name}`),
 		loc: this.location,
 		ai: this.allowAI,
 		idx: this.idx,
@@ -53,7 +54,7 @@ Attachment.prototype.toString = function () {
 };
 
 Attachment.prototype.setNamespace = function (namespace) {
-	this.name = `${namespace}${this.name}`;
+	this.namespace = namespace;
 	return this
 };
 
