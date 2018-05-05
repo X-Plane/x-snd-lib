@@ -2,7 +2,7 @@
   "name": "x-snd-lib",
   "version": "1.0.0",
   "description": "A library to programmatically generate X-Plane .SND files",
-  "main": "./lib/index.js",
+  "main": "./api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

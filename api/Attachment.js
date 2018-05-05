@@ -38,7 +38,7 @@ function Attachment(name, remark = null, attType) {
 }
 
 Attachment.prototype.toString = function () {
-	if (!this.location) {
+	if (!this.location && this.attType === BaseEvent) {
 		console.log(`Attachment: No position set, using CG at ${this.remark}.`);
 		this.location = new VehXYZ(new Coords(0, 0, 0));
 	}
@@ -57,7 +57,7 @@ Attachment.prototype.setNamespace = function (namespace) {
 	return this
 };
 
-Attachment.prototype.index = function (num) {
+Attachment.prototype.setIndex = function (num) {
 	this.idx = num;
 	return this
 };
