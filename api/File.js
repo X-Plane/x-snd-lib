@@ -3,9 +3,9 @@ const BaseFile = require('../lib/SndFile');
 function File(directives = []) {
 	if (this instanceof File) {
 		this.directives = directives;
-		this.name = 'X-Plane Sound File';
+		this.name = null;
 		this.author = null;
-		this.version = '1.0.0';
+		this.version = null;
 		this.company = null;
 	} else {
 		return new File(directives);
