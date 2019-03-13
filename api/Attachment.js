@@ -13,7 +13,8 @@ const {
 	CondCommandUp,
 	CondCommandDown,
 	CondCommandHoldStop,
-	CondCommandHoldCue
+	CondCommandHoldCue,
+	CondAutoEnd
 } = require('../lib/Conditions');
 
 const {
@@ -199,6 +200,11 @@ Attachment.prototype.onLess = function (dref, value) {
 
 Attachment.prototype.always = function () {
 	this.conditions = [new CondAlways()];
+	return this;
+};
+
+Attachment.prototype.autoEnd = function () {
+	this.conditions.push(new CondAutoEnd())
 	return this;
 };
 
