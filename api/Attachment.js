@@ -237,6 +237,7 @@ function Snapshot(name, remark = null) {
 }
 
 module.exports = {
+	Attachment,
 	Event,
 	Snapshot
 };
