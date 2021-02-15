@@ -31,6 +31,7 @@ function Attachment(name, remark = null, attType) {
 		this.namespace = '';
 		this.location = null;
 		this.allowAI = false;
+		this.polyphonic = false;
 		this.idx = null;
 		this.conditions = [];
 		this.remark = remark === true ? remarkFromName(name) : remark;
@@ -48,6 +49,7 @@ Attachment.prototype.toString = function () {
 		obj: new this.attType(`${this.namespace}${this.name}`),
 		loc: this.location,
 		ai: this.allowAI,
+		poly: this.polyphonic,
 		idx: this.idx,
 		conds: this.conditions,
 		remark: this.remark
@@ -89,6 +91,11 @@ Attachment.prototype.cockpit = function (num) {
 
 Attachment.prototype.ai = function () {
 	this.allowAI = true;
+	return this;
+};
+
+Attachment.prototype.poly = function () {
+	this.polyphonic = true;
 	return this;
 };
 
