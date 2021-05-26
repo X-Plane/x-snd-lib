@@ -6,6 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniela Rodríguez Careri <dcareri@gmail.com>",
+  "author": "Daniela Rodríguez Careri <daniela@x-plane.com>",
   "license": "ISC"
 }
