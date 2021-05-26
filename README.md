@@ -81,7 +81,7 @@ END_SOUND_ATTACHMENT
 
 ## Install
 
-(to-do)
+`npm install X-Plane/x-snd-lib`
 
 ## Usage
 
