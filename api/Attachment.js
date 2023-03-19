@@ -19,6 +19,9 @@ const {
 
 const {
 	VehXYZ,
+	VehThe,
+	VehPhi,
+	VehPsi,
 	Cockpit,
 	Tire,
 	Engine
@@ -30,6 +33,9 @@ function Attachment(name, remark = null, attType) {
 		this.name = name;
 		this.namespace = '';
 		this.location = null;
+		this.o_the = null;
+		this.o_psi = null;
+		this.o_phi = null;
 		this.allowAI = false;
 		this.polyphonic = false;
 		this.idx = null;
@@ -48,6 +54,9 @@ Attachment.prototype.toString = function () {
 	return new BaseAttachment({
 		obj: new this.attType(`${this.namespace}${this.name}`),
 		loc: this.location,
+		the: this.o_the,
+		psi: this.o_psi,
+		phi: this.o_phi,
 		ai: this.allowAI,
 		poly: this.polyphonic,
 		idx: this.idx,
@@ -70,6 +79,21 @@ Attachment.prototype.pos = function (x, y, z) {
 	this.location = new VehXYZ(new Coords(x, y, z));
 	return this;
 };
+
+Attachment.prototype.the = function (num) {
+	this.o_the = new VehThe(num);
+	return this;
+}
+
+Attachment.prototype.psi = function (num) {
+	this.o_psi = new VehPsi(num);
+	return this;
+}
+
+Attachment.prototype.phi = function (num) {
+	this.o_phi = new VehPhi(num);
+	return this;
+}
 
 Attachment.prototype.engine = function (num) {
 	this.location = new Engine(num);
