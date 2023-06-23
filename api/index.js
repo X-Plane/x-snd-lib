@@ -3,7 +3,7 @@ const { Event, Snapshot }  = require('./Attachment');
 const { Separator } = require('./Separator');
 const { Group }  = require('./Group');
 const { File } = require('./File');
-const { RequiresBank, DisableLegacy } = require('./General')
+const { RequiresBank, DisableLegacy, RefPointAcf } = require('./General')
 
 module.exports = {
 	Event,
@@ -13,5 +13,6 @@ module.exports = {
 	Group,
 	File,
 	RequiresBank,
-	DisableLegacy
+	DisableLegacy,
+	RefPointAcf,
 };
