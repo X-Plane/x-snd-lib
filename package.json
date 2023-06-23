@@ -1,6 +1,6 @@
 {
   "name": "x-snd-lib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A library to programmatically generate X-Plane .SND files",
   "main": "./api/index.js",
   "scripts": {
