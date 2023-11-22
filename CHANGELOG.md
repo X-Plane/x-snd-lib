@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+* `Group` does no longer force namespace on already namespaced `Event`.
+
 ## 1.0.2
 
 * Allow arrays on name, version, author, company.

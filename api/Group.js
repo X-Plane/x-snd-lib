@@ -10,7 +10,9 @@ function Group(directives = []) {
 Group.prototype.toString = function () {
 	let ret = '';
 	this.directives.forEach(directive => {
-		directive.setNamespace(this.namespace);
+		if (!directive.namespace) {
+			directive.setNamespace(this.namespace);
+		}
 		ret += directive.toString()
 	});
 	return ret;
